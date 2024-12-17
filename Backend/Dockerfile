@@ -4,17 +4,18 @@ FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 # Define o diretório de trabalho
 WORKDIR /app
 
-# Copia o arquivo .csproj para restaurar as dependências
-COPY *.csproj ./
+# Copia os arquivos de solução e projeto
+COPY Backend.sln ./
+COPY Backend/Backend.csproj ./Backend/
 
 # Restaura as dependências
-RUN dotnet restore
+RUN dotnet restore Backend.sln
 
-# Copia o restante do projeto
-COPY . ./
+# Copia todo o restante do projeto
+COPY Backend/. ./Backend/
 
 # Publica o projeto em modo Release
-RUN dotnet publish -c Release -o out
+RUN dotnet publish Backend.sln -c Release -o /app/out
 
 # Usa a imagem Runtime para executar a aplicação
 FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS runtime
