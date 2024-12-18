@@ -1,29 +1,15 @@
-# Usa a imagem do SDK do .NET como base
-FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 
-# Define o diretório de trabalho
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
 WORKDIR /app
+EXPOSE 80
 
-# Copia os arquivos de solução e projeto
-COPY Backend.sln ./
-COPY Backend/Backend.csproj ./Backend/
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+WORKDIR /src
+COPY . .
+RUN dotnet restore
+RUN dotnet publish -c Release -o /app
 
-# Restaura as dependências
-RUN dotnet restore Backend.sln
-
-# Copia todo o restante do projeto
-COPY Backend/. ./Backend/
-
-# Publica o projeto em modo Release
-RUN dotnet publish Backend.sln -c Release -o /app/out
-
-# Usa a imagem Runtime para executar a aplicação
-FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS runtime
+FROM base AS final
 WORKDIR /app
-COPY --from=build /app/out ./
-
-# Expõe a porta 8080
-EXPOSE 8080
-
-# Comando de entrada
+COPY --from=build /app .
 ENTRYPOINT ["dotnet", "Backend.dll"]

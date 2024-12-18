@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Xandaum\\Documents\\Devvo\\backend\\Backend.csproj": {}
+    "C:\\Users\\Xandaum\\Documents\\Devvo\\Backend\\Backend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Xandaum\\Documents\\Devvo\\backend\\Backend.csproj": {
+    "C:\\Users\\Xandaum\\Documents\\Devvo\\Backend\\Backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Xandaum\\Documents\\Devvo\\backend\\Backend.csproj",
+        "projectUniqueName": "C:\\Users\\Xandaum\\Documents\\Devvo\\Backend\\Backend.csproj",
         "projectName": "Backend",
-        "projectPath": "C:\\Users\\Xandaum\\Documents\\Devvo\\backend\\Backend.csproj",
+        "projectPath": "C:\\Users\\Xandaum\\Documents\\Devvo\\Backend\\Backend.csproj",
         "packagesPath": "C:\\Users\\Xandaum\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Xandaum\\Documents\\Devvo\\backend\\obj\\",
+        "outputPath": "C:\\Users\\Xandaum\\Documents\\Devvo\\Backend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Xandaum\\AppData\\Roaming\\NuGet\\NuGet.Config"
