@@ -10,7 +10,6 @@ services:
     environment:
       - ConnectionStrings__DefaultConnection=Server=db,1433;Database=AneisDb;User Id=sa;Password=Senha123@;Encrypt=True;TrustServerCertificate=True;
 
-
   frontend:
     build:
       context: ./frontend
